@@ -29,6 +29,22 @@ body {
     color : var(--text);
     background-color : var(--surface);
 }
+/* The reset (html5reset.css) removes browser defaults for headings, paragraphs and lists.
+   Put the ones we want back, so the text keeps its hierarchy and spacing. */
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
+h2 { font-size: 1.5rem; line-height: 1.3; margin: 2rem 0 0.75rem; }
+h3 { font-size: 1.2rem; line-height: 1.3; margin: 1.25rem 0 0.5rem; }
+p { margin: 0 0 1rem; }
+
+main ul,
+main ol {
+    margin: 0 0 1rem 1.25rem;   /* indent lists so the bullets show */
+}
+
+main ul { list-style: disc; }
+main ol { list-style: decimal; }
+main ul ul { list-style: circle; }
+
 main{
     padding: 1rem;
     max-width: 48rem;
