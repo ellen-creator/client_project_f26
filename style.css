@@ -10,9 +10,9 @@
     --step-1: #00274C;
     --step-2: #334E40;
     --step-3: #63672E;
-    --step-4: #8E7F1E;
+    --step-4: #7A6C14;
     --step-5: #C7A411;
-    --step-6: #FFCB05;
+    --step-6: #FFCB05;  
 
     /* Space used by the sticky bar, so anchor links are not hidden under it */
     --sticky-offset: 3.5rem;
