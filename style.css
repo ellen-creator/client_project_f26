@@ -7,12 +7,12 @@
     --surface: #ffffff;
     --border: #d0d0d0;
 
-    /* Step colors: a blend from blue to maize (one value per step) */
     --step-1: #00274C;
-    --step-2: #405A3D;
-    --step-3: #786F26;          /* darkened so white text reaches 4.5:1 */
-    --step-4: #BFA217;
-    --step-5: #FFCB05;
+    --step-2: #334E40;
+    --step-3: #63672E;
+    --step-4: #8E7F1E;
+    --step-5: #C7A411;
+    --step-6: #FFCB05;
 
     /* Space used by the sticky bar, so anchor links are not hidden under it */
     --sticky-offset: 3.5rem;
@@ -112,14 +112,13 @@ main{
     border-bottom: 4px solid transparent;
 }
 
-/* Each step gets its own solid color from the gradient, so text contrast stays readable */
 .process-steps li:nth-child(1) a { background-color: var(--step-1); }
 .process-steps li:nth-child(2) a { background-color: var(--step-2); }
 .process-steps li:nth-child(3) a { background-color: var(--step-3); }
-.process-steps li:nth-child(4) a { background-color: var(--step-4); color: var(--um-blue); }
+.process-steps li:nth-child(4) a { background-color: var(--step-4); }
 .process-steps li:nth-child(5) a { background-color: var(--step-5); color: var(--um-blue); }
+.process-steps li:nth-child(6) a { background-color: var(--step-6); color: var(--um-blue); }
 
-/* Hover and keyboard focus: a visible outline, not just a color change */
 .process-steps a:hover {
     text-decoration: underline;
 }
@@ -170,7 +169,7 @@ nav a:focus {
     outline-offset: 3px;
 }
 *:focus {
-    outline: 5px dashed green;   /* hw3 전역 포커스 스타일 */
+    outline: 5px dashed green; 
 }
 
 .page-title {
@@ -387,9 +386,104 @@ nav a:focus {
     margin: 0;
 }
 
-/* ----------  Accessibility exception: reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .process-steps li a {
+    display: block;
+    text-align: center;
+    padding: 0.65rem 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+
+  .process-steps li:nth-child(1) a { background-color: #E6F0FA; color: #00274C; }
+  .process-steps li:nth-child(2) a { background-color: #BFD9F2; color: #00274C; }
+  .process-steps li:nth-child(3) a { background-color: #80B3E6; color: #00274C; }
+  .process-steps li:nth-child(4) a { background-color: #2F65A7; color: #FFFFFF; }
+  .process-steps li:nth-child(5) a { background-color: #133E73; color: #FFFFFF; }
+  .process-steps li:nth-child(6) a { background-color: #00274C; color: #FFFFFF; }
+
+  .process-steps li a[aria-current="page"] {
+    outline: 3px solid #FFCB05;
+    outline-offset: -3px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .page-title img {
+    max-height: 360px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .page-title {
+    grid-column: 1 / -1;
+  }
+
+  .on-this-page {
+    grid-column: 1 / 2;
+    position: sticky;
+    top: 6rem;
+    background-color: #F4F7FA;
+    border-left: 4px solid #00274C;
+    padding: 1.25rem;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .content-section {
+    grid-column: 2 / 3;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+  }
 }
