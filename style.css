@@ -65,7 +65,7 @@ main {
         var(--step-1) 0%,
         var(--step-2) 20%,
         var(--step-3) 40%,
-        var(--step-4) 60%,
+        var(--step-4) 65%,
         var(--step-5) 80%,
         var(--step-6) 100%
     );
