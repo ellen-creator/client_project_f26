@@ -57,7 +57,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
     gap: 0.5rem;
     /* 남색부터 노란색까지 이어지는 부드러운 배경 그라데이션 */
     background: linear-gradient(
@@ -65,7 +65,7 @@ main {
         var(--step-1) 0%,
         var(--step-2) 20%,
         var(--step-3) 40%,
-        var(--step-4) 62.5%,
+        var(--step-4) 63%,
         var(--step-5) 80%,
         var(--step-6) 100%
     );
@@ -113,7 +113,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.35rem 0.25rem;
+    padding: 0.30rem 0.15rem;
     min-height: 36px;
     text-align: center;
     text-decoration: none;
