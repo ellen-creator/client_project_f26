@@ -1,4 +1,3 @@
-
 :root {
     --um-blue: #00274C;
     --um-maize: #FFCB05;
@@ -17,6 +16,7 @@
     /* Space used by the sticky bar, so anchor links are not hidden under it */
     --sticky-offset: 3.5rem;
 }
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--sticky-offset); /* keeps headings visible when jumping */
@@ -26,9 +26,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     line-height: 1.6;
-    color : var(--text);
-    background-color : var(--surface);
+    color: var(--text);
+    background-color: var(--surface);
 }
+
 /* The reset (html5reset.css) removes browser defaults for headings, paragraphs and lists.
    Put the ones we want back, so the text keeps its hierarchy and spacing. */
 h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
@@ -45,19 +46,29 @@ main ul { list-style: disc; }
 main ol { list-style: decimal; }
 main ul ul { list-style: circle; }
 
-main{
+main {
     padding: 1rem;
     max-width: 48rem;
     margin: 0 auto;
 }
 
 .site-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+    /* 남색부터 노란색까지 이어지는 부드러운 배경 그라데이션 */
+    background: linear-gradient(
+        90deg,
+        var(--step-1) 0%,
+        var(--step-2) 20%,
+        var(--step-3) 40%,
+        var(--step-4) 60%,
+        var(--step-5) 80%,
+        var(--step-6) 100%
+    );
 }
 
 /* Square logo at the left of the sticky bar. Its navy background continues
@@ -72,47 +83,49 @@ main{
 }
 
 .brand img {
-  max-height: 44px;
-  width: auto;
-  display: block;
+    max-height: 44px;
+    width: auto;
+    display: block;
 }
 
 .process-nav {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
-
 
 .process-steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
-  width: 100%;
-  max-width: 900px;
-  padding: 0;
-  margin: 0 auto;
-  list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    width: 100%; 
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
 }
+
 .process-steps li {
-    flex: 1 1 0;                /* five equal slices of the bar: all steps visible at once */
+    flex: 1 1 0;
     min-width: 0;
 }
+
 .process-steps a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.35rem 0.25rem;
-  min-height: 36px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  line-height: 1.15;
-  overflow-wrap: break-word;
-  color: #ffffff;
-  border-bottom: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.25rem;
+    min-height: 36px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1.15;
+    overflow-wrap: break-word;
+    color: #ffffff;
+    border-bottom: 3px solid transparent;
 }
+
+/* 모바일(2줄 배치)에서는 각 버튼의 대비가 깨지지 않도록 개별 배경색 유지 */
 .process-steps li:nth-child(1) a { background-color: var(--step-1); }
 .process-steps li:nth-child(2) a { background-color: var(--step-2); }
 .process-steps li:nth-child(3) a { background-color: var(--step-3); }
@@ -129,7 +142,6 @@ main{
     outline-offset: -6px;
 }
 
-
 .process-steps a[aria-current="page"] {
     text-decoration: underline;
     text-decoration-thickness: 3px;
@@ -144,19 +156,18 @@ main img {
     margin: 0 auto 30px auto;
 }
 
-
-.skip  {
+.skip {
     position: relative;
-  }
+}
 
-  .skip a {
+.skip a {
     position: absolute;
     left: -9999px;        /* far off-screen, so it is hidden until focused */
     top: auto;
-    background: #ffffff;  /* 흰색 배경을 주어야 뒤쪽 요소와 글자가 겹치지 않음 */
-    color: #000000;       /* 글자색 지정 */
-    padding: 8px 12px;    /* 버튼 형태로 보이도록 여백 추가 */
-    z-index: 1000;        /* 다른 헤더 및 본문 요소보다 위에 표시 */
+    background: #ffffff;
+    color: #000000;
+    padding: 8px 12px;
+    z-index: 1000;
     text-decoration: none;
 }
 
@@ -164,10 +175,12 @@ main img {
     left: 0.5rem;
     top: 0.5rem;          /* slides into view when focused with Tab */
 }
+
 nav a:focus {
     outline: 2px solid white;
     outline-offset: 3px;
 }
+
 *:focus {
     outline: 5px dashed green; 
 }
@@ -177,24 +190,20 @@ nav a:focus {
     border-bottom: 3px solid var(--um-maize);
 }
 
-/* Hero image: about a quarter of the screen height on first load.
-   svh is the visible height on phones; vh is the fallback for older browsers. */
 .page-title img {
     display: block;
     width: 100%;
     height: 25vh;
     height: 25svh;
-    min-height: 8rem;           /* keeps it usable on very short screens */
-    object-fit: cover;          /* fills the box, cropping the edges instead of stretching */
+    min-height: 8rem;
+    object-fit: cover;
     margin: 0 0 1rem;
 }
 
-/* For hero photos where the important part is lower in the picture (here: the laptops) */
 .page-title img.hero-bottom {
     object-position: center 60%;
 }
 
-/* Responsive video: keeps a 16:9 box that scales with the screen width */
 .video {
     position: relative;
     width: 100%;
@@ -210,9 +219,7 @@ nav a:focus {
     border: 0;
 }
 
-
-/* ---------- On this page (anchor table of contents) ----------
-   A quiet vertical list: reads top to bottom, does not compete with the content. */
+/* ---------- On this page (anchor table of contents) ---------- */
 .on-this-page {
     margin: 1.5rem 0;
     padding: 0.25rem 0 0.5rem;
@@ -236,11 +243,10 @@ nav a:focus {
 
 .on-this-page li {
     counter-increment: toc;
-    position: relative;         /* the invisible tap area below is positioned from this box */
+    position: relative;
     border-bottom: 1px solid var(--border);
 }
 
-/* Invisible extra area around each link, so the tap target is about 54px tall */
 .on-this-page a::after {
     content: "";
     position: absolute;
@@ -251,12 +257,11 @@ nav a:focus {
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    padding: 0.4rem 0;          /* visible spacing stays tight */
+    padding: 0.4rem 0;
     color: var(--um-blue);
     text-decoration: none;
 }
 
-/* Small step number in front of each line */
 .on-this-page a::before {
     content: counter(toc, decimal-leading-zero);
     flex: 0 0 auto;
@@ -272,14 +277,11 @@ nav a:focus {
 }
 
 /* ---------- Content sections ---------- */
-
-
 .content-section {
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--border);
 }
 
-/* Anchor targets are still reachable below the sticky bar (see scroll-padding-top above) */
 .content-section,
 .on-this-page {
     scroll-margin-top: var(--sticky-offset);
@@ -307,7 +309,7 @@ nav a:focus {
 }
 
 .card p {
-    flex-grow: 1;               /* pushes the links to the same baseline across cards */
+    flex-grow: 1;
     color: var(--muted);
 }
 
@@ -320,7 +322,6 @@ nav a:focus {
 }
 
 /* footer */
-
 .site-footer {
     margin-top: 2rem;
     padding: 1.5rem 1rem;
@@ -338,7 +339,7 @@ nav a:focus {
     font-style: normal;
 }
 
-/* ---------- Data table (moved from inline styles) ---------- */
+/* ---------- Data table ---------- */
 .data-table {
     width: 100%;
     border-collapse: collapse;
@@ -374,7 +375,6 @@ nav a:focus {
     font-weight: bold;
 }
 
-/* Wide tables scroll sideways on phones instead of squeezing their columns */
 .table-scroll {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -382,7 +382,7 @@ nav a:focus {
 }
 
 .table-scroll .data-table {
-    min-width: 32rem;           /* keeps the columns readable; the wrapper scrolls */
+    min-width: 32rem;
     margin: 0;
 }
 
@@ -391,116 +391,138 @@ nav a:focus {
         scroll-behavior: auto;
     }
 }
+
+/* =========================================================
+   태블릿 이상 (768px~): 6개 메뉴가 한 줄로 펴지면서 뒤쪽 그라데이션 노출
+   ========================================================= */
 @media (min-width: 768px) {
-  .site-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem 0;         /* 네비게이션 바 위아래 여백 (필요에 따라 조절) */
-    padding: 0.5rem 1.5rem;
-    gap: 1.5rem;
-  }
+    .site-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0; /* 바 위아래 흰 틈이 생기지 않도록 0으로 설정 */
+        padding: 0.5rem 1.5rem;
+        gap: 1.5rem;
+    }
+
     .process-nav {
-    width: auto;
-    flex: 1;
-  }
+        width: auto;
+        flex: 1;
+    }
 
-  .process-steps a {
-    font-size: 1.05rem;
-    padding: 0.4rem 0.4rem;
-  }
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 6px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .process-steps li {
-    display: flex;
-  }
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-  .process-steps li a {
-    display: flex;             
-    justify-content: center;   
-    align-items: center;       
-    text-align: center;       
-    width: 100%;               
-    
-    padding: 0.65rem 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: transform 0.15s ease;
-  }
+    .process-steps li {
+        display: flex;
+    }
 
+    .process-steps li a {
+        display: flex;             
+        justify-content: center;   
+        align-items: center;       
+        text-align: center;       
+        width: 100%;               
+        padding: 0.65rem 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: transform 0.15s ease, background-color 0.15s ease;
+    }
 
-  .process-steps li:nth-child(1) a { background-color: #E6F0FA; color: #00274C; }
-  .process-steps li:nth-child(2) a { background-color: #BFD9F2; color: #00274C; }
-  .process-steps li:nth-child(3) a { background-color: #80B3E6; color: #00274C; }
-  .process-steps li:nth-child(4) a { background-color: #2F65A7; color: #FFFFFF; }
-  .process-steps li:nth-child(5) a { background-color: #133E73; color: #FFFFFF; }
-  .process-steps li:nth-child(6) a { background-color: #00274C; color: #FFFFFF; }
+    /* [핵심 수정 부분] 개별 버튼의 불투명한 배경색을 투명하게 만들어
+       뒤쪽 .site-header의 남색->노란색 그라데이션이 그대로 비치게 함 */
+    .process-steps li:nth-child(1) a,
+    .process-steps li:nth-child(2) a,
+    .process-steps li:nth-child(3) a,
+    .process-steps li:nth-child(4) a {
+        background-color: transparent;
+        color: #ffffff; /* 어두운 배경 위 흰 글씨 */
+    }
 
-  .process-steps li a[aria-current="page"] {
-    outline: 3px solid #FFCB05;
-    outline-offset: -3px;
-  }
+    .process-steps li:nth-child(5) a,
+    .process-steps li:nth-child(6) a {
+        background-color: transparent;
+        color: var(--um-blue); /* 밝은 노란 배경 위 남색 글씨 (접근성 대비 유지) */
+    }
 
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
+    /* 마우스를 올렸을 때만 은은하게 하이라이트 */
+    .process-steps li a:hover {
+        background-color: rgba(255, 255, 255, 0.18);
+    }
 
-  .page-title img {
-    max-height: 360px;
-    width: 100%;
-    object-fit: cover;
-  }
+    .process-steps li a[aria-current="page"] {
+        outline: 3px solid #FFCB05;
+        outline-offset: -3px;
+    }
+
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
+    .page-title img {
+        max-height: 360px;
+        width: 100%;
+        object-fit: cover;
+    }
 }
 
+/* =========================================================
+   데스크톱 (1024px~): 메뉴바 및 본문 폭 확장
+   ========================================================= */
 @media (min-width: 1024px) {
-  main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 2.5rem;
-    align-items: start;
-  }
+    .process-steps {
+        max-width: none;
+        gap: 10px;
+    }
 
-  .page-title {
-    grid-column: 1 / -1;
-  }
+    main {
+        max-width: 75rem;
+        margin: 0 auto;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 2.5rem;
+        align-items: start;
+    }
 
-  .on-this-page {
-    grid-column: 1 / 2;
-    position: sticky;
-    top: 6rem;
-    background-color: #F4F7FA;
-    border-left: 4px solid #00274C;
-    padding: 1.25rem;
-    border-radius: 0 6px 6px 0;
-  }
+    .page-title {
+        grid-column: 1 / -1;
+    }
 
-  .content-section {
-    grid-column: 2 / 3;
-  }
+    .on-this-page {
+        grid-column: 1 / 2;
+        position: sticky;
+        top: 6rem;
+        background-color: #F4F7FA;
+        border-left: 4px solid #00274C;
+        padding: 1.25rem;
+        border-radius: 0 6px 6px 0;
+    }
 
-  .card-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
+    .content-section {
+        grid-column: 2 / 3;
+    }
 
-  .site-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 3rem;
-  }
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .site-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 3rem;
+    }
 }
