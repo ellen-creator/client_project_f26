@@ -122,13 +122,20 @@ main {
     transition: transform 0.15s ease, filter 0.15s ease;
 }
 
- .process-steps li:nth-child(1) a { background-color: var(--step-1); }
-.process-steps li:nth-child(2) a { background-color: var(--step-2); }
-.process-steps li:nth-child(3) a { background-color: var(--step-3); }
-.process-steps li:nth-child(4) a { background-color: var(--step-4); }
-.process-steps li:nth-child(5) a { background-color: var(--step-5); color: var(--um-blue); }
-.process-steps li:nth-child(6) a { background-color: var(--step-6); color: var(--um-blue); }
-
+.process-steps li:nth-child(1) a[aria-current="page"],
+.process-steps li:nth-child(2) a[aria-current="page"],
+.process-steps li:nth-child(3) a[aria-current="page"],
+.process-steps li:nth-child(4) a[aria-current="page"] {
+    background-color: rgba(0, 0, 0, 0.28);
+    box-shadow: inset 0 -4px 0 var(--um-maize);
+    outline: none;
+}
+.process-steps li:nth-child(5) a[aria-current="page"],
+.process-steps li:nth-child(6) a[aria-current="page"] {
+    background-color: transparent;
+    box-shadow: inset 0 -4px 0 var(--um-blue);
+    outline: none;
+}
 .process-steps a:hover {
     text-decoration: underline;
 }
@@ -435,23 +442,26 @@ nav a:focus {
 
     /* [핵심 수정 부분] 개별 버튼의 불투명한 배경색을 투명하게 만들어
        뒤쪽 .site-header의 남색->노란색 그라데이션이 그대로 비치게 함 */
-    .process-steps li:nth-child(1) a,
-    .process-steps li:nth-child(2) a,
-    .process-steps li:nth-child(3) a,
-    .process-steps li:nth-child(4) a {
-        background-color: transparent;
-        color: #ffffff; /* 어두운 배경 위 흰 글씨 */
+    .process-steps li:nth-child(1) a[aria-current="page"],
+    .process-steps li:nth-child(2) a[aria-current="page"],
+    .process-steps li:nth-child(3) a[aria-current="page"],
+    .process-steps li:nth-child(4) a[aria-current="page"] {
+        background-color: rgba(0, 0, 0, 0.28);
+        box-shadow: inset 0 -4px 0 var(--um-maize);
+        outline: none;
     }
-
-    .process-steps li:nth-child(5) a,
-    .process-steps li:nth-child(6) a {
-        background-color: transparent;
-        color: var(--um-blue);  
-    }
-
-     .process-steps li a:hover {
-        background-color: rgba(255, 255, 255, 0.18);
-    }
+    .process-steps li:nth-child(5) a[aria-current="page"],
+    .process-steps li:nth-child(6) a[aria-current="page"] {
+    background-color: transparent;
+    box-shadow: inset 0 -4px 0 var(--um-blue);
+    outline: none;
+}
+    .process-steps li a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
 
     .process-steps li a[aria-current="page"] {
     background-color: rgba(255, 255, 255, 0.25);
