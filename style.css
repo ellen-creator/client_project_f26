@@ -10,7 +10,7 @@
     --step-2: #334E40;
     --step-3: #63672E;
     --step-4: #7A6C14;
-    --step-5: #C7A411;
+    --step-5: #E5C11B;
     --step-6: #FFCB05;  
 
     /* Space used by the sticky bar, so anchor links are not hidden under it */
@@ -132,9 +132,9 @@ main {
 }
 .process-steps li:nth-child(5) a[aria-current="page"],
 .process-steps li:nth-child(6) a[aria-current="page"] {
-    background-color: transparent;
-    box-shadow: inset 0 -4px 0 var(--um-blue);
-    outline: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: var(--um-blue);
+    box-shadow: inset 0 -5px 0 var(--um-blue);
 }
 
 .process-steps a:focus-visible {
@@ -470,8 +470,8 @@ nav a:focus {
 
 .process-steps li:nth-child(5) a:hover,
 .process-steps li:nth-child(6) a:hover {
-    background-color: rgba(0, 39, 76, 0.12);  
-    color: var(--um-blue); 
+    background-color: rgba(255, 255, 255, 0.35);
+    color: var(--um-blue);
     text-decoration: underline;
 }
  
@@ -486,11 +486,10 @@ nav a:focus {
 
 .process-steps li:nth-child(5) a[aria-current="page"],
 .process-steps li:nth-child(6) a[aria-current="page"] {
-    background-color: rgba(0, 39, 76, 0.15);
-    color: var(--um-blue); 
-    box-shadow: inset 0 -5px 0 var(--um-blue);  
+    background-color: rgba(255, 255, 255, 0.5);
+    color: var(--um-blue);
+    box-shadow: inset 0 -5px 0 var(--um-blue);
 }
-
  .process-steps li a:focus-visible {
     outline: 3px solid var(--um-blue);
     outline-offset: -4px;
