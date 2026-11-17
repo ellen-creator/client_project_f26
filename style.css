@@ -136,6 +136,12 @@ main {
     box-shadow: inset 0 -4px 0 var(--um-blue);
     outline: none;
 }
+
+.process-steps a:focus-visible {
+    outline: 3px solid var(--um-blue);
+    outline-offset: -4px;
+    box-shadow: inset 0 0 0 6px #ffffff;
+}
 .process-steps a:hover {
     text-decoration: underline;
 }
@@ -439,33 +445,57 @@ nav a:focus {
         text-decoration: none;
         transition: transform 0.15s ease, background-color 0.15s ease;
     }
-
-    /* [핵심 수정 부분] 개별 버튼의 불투명한 배경색을 투명하게 만들어
-       뒤쪽 .site-header의 남색->노란색 그라데이션이 그대로 비치게 함 */
-    .process-steps li:nth-child(1) a[aria-current="page"],
-    .process-steps li:nth-child(2) a[aria-current="page"],
-    .process-steps li:nth-child(3) a[aria-current="page"],
-    .process-steps li:nth-child(4) a[aria-current="page"] {
-        background-color: rgba(0, 0, 0, 0.28);
-        box-shadow: inset 0 -4px 0 var(--um-maize);
-        outline: none;
-    }
-    .process-steps li:nth-child(5) a[aria-current="page"],
-    .process-steps li:nth-child(6) a[aria-current="page"] {
+.process-steps li:nth-child(1) a,
+.process-steps li:nth-child(2) a,
+.process-steps li:nth-child(3) a,
+.process-steps li:nth-child(4) a {
     background-color: transparent;
-    box-shadow: inset 0 -4px 0 var(--um-blue);
-    outline: none;
+    color: #ffffff;
 }
-    .process-steps li a:hover {
+
+.process-steps li:nth-child(5) a,
+.process-steps li:nth-child(6) a {
     background-color: transparent;
+    color: var(--um-blue); /* #00274C 진한 남색 */
+}
+ 
+.process-steps li:nth-child(1) a:hover,
+.process-steps li:nth-child(2) a:hover,
+.process-steps li:nth-child(3) a:hover,
+.process-steps li:nth-child(4) a:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
     text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
 }
 
-    .process-steps li a[aria-current="page"] {
-    background-color: rgba(255, 255, 255, 0.25);
-    box-shadow: inset 0 -4px 0 var(--um-blue);}
+.process-steps li:nth-child(5) a:hover,
+.process-steps li:nth-child(6) a:hover {
+    background-color: rgba(0, 39, 76, 0.12);  
+    color: var(--um-blue); 
+    text-decoration: underline;
+}
+ 
+.process-steps li:nth-child(1) a[aria-current="page"],
+.process-steps li:nth-child(2) a[aria-current="page"],
+.process-steps li:nth-child(3) a[aria-current="page"],
+.process-steps li:nth-child(4) a[aria-current="page"] {
+    background-color: rgba(0, 0, 0, 0.32);
+    color: #ffffff;
+    box-shadow: inset 0 -5px 0 var(--um-maize);  
+}
+
+.process-steps li:nth-child(5) a[aria-current="page"],
+.process-steps li:nth-child(6) a[aria-current="page"] {
+    background-color: rgba(0, 39, 76, 0.15);
+    color: var(--um-blue); 
+    box-shadow: inset 0 -5px 0 var(--um-blue);  
+}
+
+ .process-steps li a:focus-visible {
+    outline: 3px solid var(--um-blue);
+    outline-offset: -4px;
+    box-shadow: inset 0 0 0 6px #ffffff;  
+}
 
     .card-grid {
         display: grid;
