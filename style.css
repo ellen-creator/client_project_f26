@@ -29,9 +29,7 @@ body {
     color: var(--text);
     background-color: var(--surface);
 }
-
-/* The reset (html5reset.css) removes browser defaults for headings, paragraphs and lists.
-   Put the ones we want back, so the text keeps its hierarchy and spacing. */
+ 
 h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
 h2 { font-size: 1.5rem; line-height: 1.3; margin: 2rem 0 0.75rem; }
 h3 { font-size: 1.2rem; line-height: 1.3; margin: 1.25rem 0 0.5rem; }
@@ -59,7 +57,7 @@ main {
     justify-content: center;
     padding: 0.3rem 1rem;
     gap: 0.5rem;
-    /* 남색부터 노란색까지 이어지는 부드러운 배경 그라데이션 */
+    
     background: linear-gradient(
         90deg,
         var(--step-1) 0%,
@@ -70,9 +68,7 @@ main {
         var(--step-6) 100%
     );
 }
-
-/* Square logo at the left of the sticky bar. Its navy background continues
-   the bar's navy start, and a 1px white line separates it from the first step. */
+ 
 .brand {
     flex: 0 0 auto;
     width: 3rem;
@@ -125,8 +121,7 @@ main {
     border-bottom: 3px solid transparent;
 }
 
-/* 모바일(2줄 배치)에서는 각 버튼의 대비가 깨지지 않도록 개별 배경색 유지 */
-.process-steps li:nth-child(1) a { background-color: var(--step-1); }
+ .process-steps li:nth-child(1) a { background-color: var(--step-1); }
 .process-steps li:nth-child(2) a { background-color: var(--step-2); }
 .process-steps li:nth-child(3) a { background-color: var(--step-3); }
 .process-steps li:nth-child(4) a { background-color: var(--step-4); }
@@ -162,7 +157,7 @@ main img {
 
 .skip a {
     position: absolute;
-    left: -9999px;        /* far off-screen, so it is hidden until focused */
+    left: -9999px;        
     top: auto;
     background: #ffffff;
     color: #000000;
@@ -173,7 +168,7 @@ main img {
 
 .skip a:focus {
     left: 0.5rem;
-    top: 0.5rem;          /* slides into view when focused with Tab */
+    top: 0.5rem;          
 }
 
 nav a:focus {
@@ -219,7 +214,6 @@ nav a:focus {
     border: 0;
 }
 
-/* ---------- On this page (anchor table of contents) ---------- */
 .on-this-page {
     margin: 1.5rem 0;
     padding: 0.25rem 0 0.5rem;
@@ -276,7 +270,7 @@ nav a:focus {
     text-decoration: underline;
 }
 
-/* ---------- Content sections ---------- */
+ 
 .content-section {
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--border);
@@ -392,9 +386,6 @@ nav a:focus {
     }
 }
 
-/* =========================================================
-   태블릿 이상 (768px~): 6개 메뉴가 한 줄로 펴지면서 뒤쪽 그라데이션 노출
-   ========================================================= */
 @media (min-width: 768px) {
     .site-header {
         display: flex;
@@ -477,9 +468,7 @@ nav a:focus {
     }
 }
 
-/* =========================================================
-   데스크톱 (1024px~): 메뉴바 및 본문 폭 확장
-   ========================================================= */
+
 @media (min-width: 1024px) {
     .process-steps {
         max-width: none;
