@@ -55,9 +55,9 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0.3rem 1rem;
+    padding: 0.5rem 1rem;
     gap: 0.5rem;
-    
+    /* 기존에 작성하신 6단계 그라데이션 그대로 유지! */
     background: linear-gradient(
         90deg,
         var(--step-1) 0%,
@@ -68,7 +68,6 @@ main {
         var(--step-6) 100%
     );
 }
- 
 .brand {
     flex: 0 0 auto;
     width: 3rem;
@@ -109,16 +108,18 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.30rem 0.15rem;
-    min-height: 36px;
+    padding: 0.45rem 0.25rem;
+    min-height: 40px;  
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.15;
     overflow-wrap: break-word;
     color: #ffffff;
-    border-bottom: 3px solid transparent;
+    border-radius: 4px;  
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    transition: transform 0.15s ease, filter 0.15s ease;
 }
 
  .process-steps li:nth-child(1) a { background-color: var(--step-1); }
@@ -174,10 +175,6 @@ main img {
 nav a:focus {
     outline: 2px solid white;
     outline-offset: 3px;
-}
-
-*:focus {
-    outline: 5px dashed green; 
 }
 
 .page-title {
@@ -272,8 +269,8 @@ nav a:focus {
 
  
 .content-section {
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border);
 }
 
 .content-section,
@@ -291,11 +288,18 @@ nav a:focus {
 .card {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1.25rem;
     background-color: #ffffff;
     border: 1px solid var(--border);
     border-top: 6px solid var(--um-maize);
-    border-radius: 6px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 39, 76, 0.12);
 }
 
 .card h3 {
@@ -442,18 +446,16 @@ nav a:focus {
     .process-steps li:nth-child(5) a,
     .process-steps li:nth-child(6) a {
         background-color: transparent;
-        color: var(--um-blue); /* 밝은 노란 배경 위 남색 글씨 (접근성 대비 유지) */
+        color: var(--um-blue);  
     }
 
-    /* 마우스를 올렸을 때만 은은하게 하이라이트 */
-    .process-steps li a:hover {
+     .process-steps li a:hover {
         background-color: rgba(255, 255, 255, 0.18);
     }
 
     .process-steps li a[aria-current="page"] {
-        outline: 3px solid #FFCB05;
-        outline-offset: -3px;
-    }
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: inset 0 -4px 0 var(--um-blue);}
 
     .card-grid {
         display: grid;
