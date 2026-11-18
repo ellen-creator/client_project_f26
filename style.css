@@ -391,7 +391,11 @@ nav a:focus {
     -webkit-overflow-scrolling: touch;
     margin: 1rem 0;
 }
-
+.table-scroll:focus-visible {
+    outline: 3px solid #00274C;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
 .table-scroll .data-table {
     min-width: 32rem;
     margin: 0;
